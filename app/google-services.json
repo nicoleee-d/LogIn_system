@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "534808163104",
+    "project_id": "loginact-22aca",
+    "storage_bucket": "loginact-22aca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534808163104:android:83394b49accad6031add45",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM5MxrL85CwvtpxbLCizYNQUlRrwck3AE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
