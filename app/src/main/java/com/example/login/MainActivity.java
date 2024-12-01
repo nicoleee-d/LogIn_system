@@ -28,11 +28,32 @@ public class MainActivity extends AppCompatActivity {
         EditText passwordField = findViewById(R.id.loginPassword);
         Button loginButton = findViewById(R.id.loginButton);
         TextView signupText = findViewById(R.id.loginText);
+        TextView forgotPasswordText = findViewById(R.id.forgotPassword);
 
         // Navigate to SignUp activity on Text Click
         signupText.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, SignUp.class);
             startActivity(intent);
+        });
+
+        // Handle Forgot Password Click
+        forgotPasswordText.setOnClickListener(view -> {
+            String email = emailField.getText().toString().trim();
+
+            if (email.isEmpty()) {
+                Toast.makeText(MainActivity.this, "Please enter your email", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            firebaseAuth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this, "Password reset email sent!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            String errorMessage = task.getException() != null ? task.getException().getMessage() : "Failed to send reset email!";
+                            Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
 
         // Handle Login Button Click
